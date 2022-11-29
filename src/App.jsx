@@ -11,6 +11,11 @@ function App() {
         <CartWidget/>
       </Navbar>
       <ItemListContainer greatings={"Bienvenidos a la tienda Nickers"}/>
+      <div>
+        <h3>
+          Hello world
+        </h3>
+      </div>
     </div>
   );
 }
