@@ -10,6 +10,7 @@ function App() {
     <div className="App">
       <Navbar>
         <CartWidget/>
+        
       </Navbar>
         <h3>
       <ItemListContainer greatings={"Bienvenidos a nuestra tienda online"}>
