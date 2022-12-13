@@ -1,8 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
-import ItemListContainer from './components/ItemListContainer';
+import ItemList from './components/ItemList';
 import CartWidget from './components/CartWidget';
+import ItemListContainer from './components/ItemListContainer';
 
 function App() {
   return (
@@ -10,12 +11,11 @@ function App() {
       <Navbar>
         <CartWidget/>
       </Navbar>
-      <ItemListContainer greatings={"Bienvenidos a la tienda Nickers"}/>
-      <div>
         <h3>
-          Hello world
+      <ItemListContainer greatings={"Bienvenidos a nuestra tienda online"}>
+        <ItemList/>
+      </ItemListContainer>
         </h3>
-      </div>
     </div>
   );
 }
