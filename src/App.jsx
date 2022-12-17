@@ -3,18 +3,20 @@ import './App.css';
 import Navbar from './components/Navbar';
 import CartWidget from './components/CartWidget';
 import ItemListContainer from './components/ItemListContainer';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ItemDetail from './components/ItemDetail';
 
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
       <Navbar>
         <CartWidget/>
       </Navbar>
-        <h3>
-      <ItemListContainer greatings={"Bienvenidos a nuestra tienda online"}>
-      </ItemListContainer>
-        </h3>
-    </div>
+      <Routes>
+        <Route path='/' element={<ItemListContainer/>}/>
+        <Route path='/itemDetail/:id' element={<ItemDetail/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

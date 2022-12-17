@@ -25,7 +25,7 @@ const ItemList = () => {
   return (
     <div>
         <h1>Catalogo de productos</h1>
-        <div className='flex flex-col items-center'>
+        <div className='flex flex-wrap justify-center'>
         {Items.map( prod => <Item key={prod.id} {...prod}/>)}
         </div>
     </div>
