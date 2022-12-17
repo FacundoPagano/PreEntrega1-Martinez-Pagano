@@ -1,37 +1,18 @@
 import React from 'react'
-import {products} from '../components/Mock/Products'
-import { Link } from 'react-router-dom'
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
-
-const Item = () => {
-
-  const [prod, setProd] = useState({})
-  const { id } = useParams()
-
-  useEffect(() => {
-    getprodDetail().then( res => {
-        setProd( res )
-    })
-  }, [ id ])
-  
-  const getprodDetail = () => {
-    return new Promise( (resolve, reject) => {
-      const item = products.find( p => p.id == id )
-      setTimeout(() => {
-          resolve( item )
-      }, 500);
-    })
-  }
 
 
+const Item = ({name,image,price,stock}) => {
   return (
-    <div>
-    <div>{prod.title}</div>
-    <div>{prod.stock}</div>
-    <div>{prod.price}</div>
-     <img src={prod.image} alt="" />
+    <div className="card card-compact w-96 bg-orange-300 shadow-xl my-14">
+  <figure><img src={image} alt="Shoes" /></figure>
+  <div className="card-body">
+    <h2 className="card-title text-black text-xl">{name}</h2>
+    <strong className='text-black text-base' >Stock: {stock} - ${price}</strong>
+    <div className="card-actions justify-end">
+      <button className="btn btn-primary">Ver detalles</button>
     </div>
+  </div>
+</div>
   )
 }
 

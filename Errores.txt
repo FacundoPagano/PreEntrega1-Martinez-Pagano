@@ -1,1 +1,0 @@
-[eslint] Plugin "react" was conflicted between "package.json » eslint-config-react-app » C:\Users\Usuario\coder\react-js\proyecto-final\node_modules\eslint-config-react-app\base.js" and "BaseConfig » C:\Users\Usuario\Coder\react-js\proyecto-final\node_modules\eslint-config-react-app\base.js".
