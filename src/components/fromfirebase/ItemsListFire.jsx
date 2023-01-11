@@ -39,7 +39,7 @@ const ItemsListFire = () => {
     </>
     }
 
-    {items.map (i=> <li key={i.id}>{i.name} {i.price}</li>)}
+    {items.map (i=> <li key={i.id}>{i.name} {i.price} {i.stock}</li>)}
     </div>
   )
 }
