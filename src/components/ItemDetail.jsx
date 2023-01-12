@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import ItemCount from './ItemCount'
 import { products } from './Mock/Products'
 import {CartContext} from './context/cartContext'
+import { doc, getDoc, getFirestore } from 'firebase/firestore'
 
 
 const ItemDetail = () => {
@@ -12,8 +13,19 @@ const ItemDetail = () => {
 
     const { addToCart, cartItem }= useContext(CartContext)
  
-
     useEffect(() => {
+      getItemData()
+    }, [])
+
+    const getItemData = async () => {
+    const db = getFirestore()
+    const docRef = doc (db, 'items' , id)
+    const snapshot = await getDoc(docRef)
+    setItem(snapshot.doc.map(i=>({id: i.id, ...i.data() })))
+    }
+  
+
+    /*     useEffect(() => {
       getItemDetail().then(res=>{
         setItem(res);
       })
@@ -28,7 +40,7 @@ const ItemDetail = () => {
         }, 200);
       })
     }
-
+ */
     const addHandler = () => {
       addToCart(id)
     }
