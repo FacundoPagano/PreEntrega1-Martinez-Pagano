@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import {CartContext} from './context/cartContext'
+import Item from './Item'
 
 const Cart = () => {
   
@@ -14,7 +15,7 @@ const Cart = () => {
     <>
       <div className='text-xl m-10'> Mi Carrito </div>
       {cartItem.length == 0 && <h1 className='text-5xl m-10 pt-20 text-center'> Su carrito se encuentra vacio.</h1>}
-      <div>{cartItem.map ((i => <li key={i}> {i} </li>))}</div>
+      <div>{cartItem.map ((i => <li key={i}> {i} {i.name} </li>))}</div>
       {cartItem.length > 0 && <button className='btn btn-primary ml-10' onClick={clearCart}>  Vaciar Carrito</button>}
     </>
   )

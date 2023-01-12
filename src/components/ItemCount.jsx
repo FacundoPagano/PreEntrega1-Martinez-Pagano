@@ -12,8 +12,8 @@ const ItemCount = ({stock, onAdd}) => {
     }
 
     const restar = () => {
-        if(count > 1){
-            setCount( count => count - 1)
+        if(count >= 1){
+            setCount( count >= count - 1)
         }
     }
 
