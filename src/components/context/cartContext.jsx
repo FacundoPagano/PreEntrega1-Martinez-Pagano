@@ -4,6 +4,9 @@ const CartContext = createContext ({
     cartItem: [],
     addToCart: () => {},
     clearCart: () => {},
+    removeItem: () => {},
+    totalItems: () => {},
+    getTotalPrice: () => {},
 })
 
 const CartContextProvider = ( { children } ) => {
@@ -27,14 +30,38 @@ const CartContextProvider = ( { children } ) => {
         }
     }
 
+    const removeItem = (id) => {
+        const updateItems = products.filter((item => item.id !== id))
+        setProducts(updateItems)
+    }
+
     const clearCart = () => {
         setProducts ([])
+    }
+    
+    function totalItems() {
+        let total = 0;
+        products.forEach(itemCart => {
+            total = total + itemCart.cantidad
+        })
+        return total;
+    }
+    
+    const getTotalPrice = () => {
+        let total = 0;
+        products.forEach(itemCart => {
+            total = total + itemCart.cantidad * itemCart.price
+        })
+        return total;
     }
 
     const context={
         cartItem: products,
         addToCart: addToCart,
         clearCart: clearCart,
+        removeItem: removeItem,
+        totalItems: totalItems,
+        getTotalPrice: getTotalPrice
     } 
 
   return (
