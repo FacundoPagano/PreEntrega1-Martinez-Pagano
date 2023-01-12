@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { CartContext } from './context/cartContext'
 
 const CartWidget = () => {
+
+  const {totalItems, getTotalPrice} = useContext(CartContext)
+
   return (
   <div className="flex-none">
     <div className="dropdown dropdown-end">
@@ -13,11 +17,11 @@ const CartWidget = () => {
       </label>
       <div tabIndex={0} className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow">
         <div className="card-body">
-          <span className="font-bold text-lg">0 Items</span>
-          <span className="text-info">Subtotal: $0</span>
+          <span className="font-bold text-lg">Items:{totalItems()}</span>
+          <span className="text-info">Subtotal: {getTotalPrice()}</span>
           <div className="card-actions">
             <Link to='/cart'>
-              <button className="btn btn-primary btn-block">View cart</button>
+              <button className="btn btn-primary btn-block">Ver Carrito</button>
             </Link>
           </div>
         </div>

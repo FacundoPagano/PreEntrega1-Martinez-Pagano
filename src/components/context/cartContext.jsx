@@ -25,8 +25,8 @@ const CartContextProvider = ( { children } ) => {
             setProducts(actCart)
         }
         else {
-            /* setProducts([...products, {...producto, cantidad}]) */
-            setProducts (products => products.concat(producto) )
+            setProducts([...products, {...producto, cantidad}])
+/*             setProducts (products => products.concat(producto) ) */
         }
     }
 
